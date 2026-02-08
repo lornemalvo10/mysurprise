@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+body{
+    margin:0;
+    height:100vh;
+    font-family:'Raleway', sans-serif;
+    color:#fff;
+
+    background:
+    linear-gradient(rgba(80,0,40,0.35), rgba(30,0,20,0.55)),
+    url('https://images.unsplash.com/photo-1490750967868-88aa4486c946'); /* flowers field */
+
+    background-size:cover;
+    background-position:center;
+}
+
+/* layout */
+.scene3{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:70px;
+}
+
+/* floating characters */
+.char{
+    width:220px;
+    animation: float 5s ease-in-out infinite;
+    filter: drop-shadow(0 0 25px rgba(255,180,80,0.7));
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-14px);}
+    100%{transform:translateY(0);}
+}
+
+/* romantic text box */
+.text-box{
+    width:650px;
+    min-height:240px;
+    padding:35px;
+    border-radius:20px;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+    font-size:28px;
+    line-height:1.8;
+    position:relative;
+    box-shadow:0 0 60px rgba(255,200,100,0.4);
+}
+
+/* next button */
+.next-btn{
+    position:absolute;
+    bottom:18px;
+    right:25px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.final-moment{
+    animation: magicalReveal 2s forwards;
+    text-align:center;
+
+    font-family: 'Cinzel Decorative', serif;
+    font-size:44px;
+    letter-spacing:3px;
+    line-height:1.6;
+
+    color:#fff8dc;
+    text-shadow: 
+        0 0 20px rgba(255,215,120,0.9),
+        0 0 40px rgba(255,180,80,0.7);
+}
+
+@keyframes magicalReveal{
+    0%{
+        opacity:0;
+        transform:scale(0.9);
+    }
+    100%{
+        opacity:10;
+        transform:scale(1);
+        box-shadow:0 0 15px rgba(255,200,100,0.6);
+        background:rgba(255,200,120,0.08);
+        backdrop-filter: blur(6px);
+    }
+}
+
+.valentine-word{
+    color:#ff2e63;
+    text-shadow:
+        0 0 15px rgba(255,50,80,0.9),
+        0 0 30px rgba(255,0,60,0.7);
+}
+
+body{
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+body.fade-in{
+    opacity: 1;
+}
+
+body.fade-out{
+    opacity: 0;
+}

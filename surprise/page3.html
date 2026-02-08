@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<div class="fade-overlay" id="fade"></div>
+<head>
+
+    <style>
+        .fade-overlay{
+            position:fixed;
+            inset:0;
+            background:black;
+            opacity:0;
+            pointer-events:none;
+            transition:opacity 1s ease;
+            z-index:9999;
+        }
+        .fade-overlay.active{
+            opacity:1;
+        }
+        </style>
+    <title>Ask You Out</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+
+<div class="fade-overlay" id="fade"></div>
+<body>
+<audio id="bgMusic" src="bgmusic.mp3" loop></audio>
+<audio id="typeSound" src="typing.mp3"></audio>
+
+
+<div class="scene3">
+
+    <img src="mukesh.png" class="char left">
+
+    <div class="text-box">
+        <div id="textArea"></div>
+        <div class="next-btn" id="nextBtn">➜</div>
+    </div>
+
+    <img src="shanti.png" class="char right">
+
+</div>
+
+<script src="scene3.js"></script>
+
+<script src="transition.js"></script>
+
+</body>
+<div class="fade-overlay" id="fade"></div>
+
+</html>

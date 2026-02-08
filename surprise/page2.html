@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <div class="fade-overlay" id="fade"></div>
+<head>
+    <title>Our First Meet</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        .fade-overlay{
+            position:fixed;
+            inset:0;
+            background:black;
+            opacity:0;
+            pointer-events:none;
+            transition:opacity 1s ease;
+            z-index:9999;
+        }
+        
+        .fade-overlay.active{
+            opacity:1;
+        }
+        </style>
+</head>
+<div class="fade-overlay" id="fade"></div>
+
+<body>
+
+<audio id="bgMusic" src="bgmusic.mp3" loop></audio>
+
+<div class="title2">Our First Meet...</div>
+
+<!-- Characters row -->
+<div class="characters-row">
+    <img src="mukesh.png" class="char left">
+    
+    <div class="center-char">
+        <img src="her.jpg" class="her-img">
+    </div>
+
+    <img src="shanti.png" class="char shanti">
+</div>
+
+<!-- Dialogue below characters -->
+<div class="dialogue-container">
+    <span id="text"></span>
+    <div class="next-btn" onclick="handleClick()">➜</div>
+</div>
+
+<audio id="typeSound" src="typing.mp3"></audio>
+<audio id="bgMusic" src="hip.mp3" loop></audio>
+
+<script>
+const lines = [
+    "",
+"The first time I saw you, I froze…..... You know I did.....",
+"I couldn't believe what I was saw.....",
+"And I still can’t!! ... That I get to talk to you...",
+"It was the best first date....",
+"Because of the sev puri we had ofcourse.........😂😂",
+"And because of the kind of PERSON you are...",
+"A good mix of CALM and CHAOS"
+];
+
+let index = 0;
+let charIndex = 0;
+let typing = false;
+let started = false;
+
+const typeSound = document.getElementById("typeSound");
+const bgMusic = document.getElementById("bgMusic");
+
+function handleClick() {
+    if (!started) {
+        bgMusic.volume = 0.4;
+        bgMusic.currentTime = 4;
+        bgMusic.play();
+        started = true;
+    }
+    nextLine();
+}
+
+function startTypingSound() {
+    typeSound.currentTime = 0;
+    typeSound.loop = true;
+    typeSound.play();
+}
+
+function stopTypingSound() {
+    typeSound.pause();
+    typeSound.currentTime = 0;
+}
+
+function typeWriter(text) {
+    if (charIndex < text.length) {
+        document.getElementById("text").innerHTML += text.charAt(charIndex);
+        charIndex++;
+        setTimeout(() => typeWriter(text), 35);
+    } else {
+        typing = false;
+        stopTypingSound();
+    }
+}
+
+function nextLine() {
+    if (typing) return;
+
+    if (index < lines.length) {
+        document.getElementById("text").innerHTML = "";
+        charIndex = 0;
+        typing = true;
+        startTypingSound();
+        typeWriter(lines[index]);
+        index++;
+    } else {
+        window.location.href = "page3.html";
+    }
+}
+
+nextLine();
+</script>
+<script src="transition.js"></script>
+
+
+</body>
+
+    <div class="fade-overlay" id="fade"></div>
+</html>
